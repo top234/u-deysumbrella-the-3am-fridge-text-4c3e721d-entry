@@ -1,8 +1,12 @@
+// The 3am fridge, playing therapist: at 3am you don't open the
+// fridge hungry, you open it hoping for answers — and the little humming
+// box can only offer leftovers plus a verdict on your life choices.
+const SETUP = "3am. You stare into me like I'll fix your life.";
+const PUNCH = "Best I can do is cold pizza and judgment.";
+
+const line = `${SETUP} ${PUNCH}`;
+
 import { mkdirSync, writeFileSync } from "node:fs";
-// The fridge works the night shift and never gets to go home.
-const setup = "It's 3am. Everyone's asleep and I'm still humming —";
-const punch = "the only appliance in this house that never clocks out.";
-const line = `${setup} ${punch}`;
-const outDir = process.env.OUTPUT_DIR ?? "/output";
-mkdirSync(outDir, { recursive: true });
-writeFileSync(`${outDir}/entry.txt`, line, "utf8");
+
+mkdirSync("/output", { recursive: true });
+writeFileSync("/output/entry.txt", line + "\n");
